@@ -11,6 +11,36 @@ window.addEventListener('DOMContentLoaded', () => {
   };
 
 
+  function listCreatedAt(){
+
+    const displayDate = document.querySelector('.displayDate')
+
+    let date = new Date();
+    let day = date.getDay() + 1;
+    if (day.toString().length === 1) {
+     day = '0' + day;
+    } 
+      
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+
+    let hour = date.getHours();
+    if (hour.toString().length === 1) {
+      hour = '0' + hour
+     } 
+
+    let minutes = date.getMinutes();
+    if (minutes.toString().length === 1) {
+      minutes = '0' + minutes.toString();
+     } 
+
+    const txt = `Liste créee le ${day}/${month}/${year} à ${hour}h${minutes}`;
+
+    displayDate.textContent = txt;
+
+  }
+
+
   function callToAction() {
 
     document.querySelector('.icon-add').addEventListener('click', addTodoList);
@@ -28,6 +58,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     if (inputTodolist.value === '') return alert("Il n'y a rien à ajouter !");
 
+    listCreatedAt();
     const p = document.createElement('p');
     p.classList.add('list');
     p.textContent = inputTodolist.value;
@@ -37,14 +68,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
     p.appendChild(i)
 
-    displayTodolist.appendChild(p);
+    displayTodolist.insertBefore(p, displayTodolist.firstChild)
 
     setTimeout(() => {
       p.classList.add('transition');
     }, 200);
 
-    
-    // data.push(inputTodolist.value);
 
     localStorage.setItem(inputTodolist.value, inputTodolist.value)
 
@@ -79,7 +108,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     data.forEach(element => {
       nameStorage.push(localStorage.getItem(element));
-      nameStorage = nameStorage.reverse()
+      // nameStorage = nameStorage.reverse()
     });
 
     
