@@ -1,0 +1,84 @@
+body {
+  background: #f1f1f1;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.bloc-todo {
+  position: relative;
+  margin: 100px auto;
+  max-width: 500px;
+  padding: 2rem;
+}
+
+.title {
+  color: rgb(127, 182, 201);
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+#todolist {
+  display: block;
+  margin-bottom: 3rem;
+  width: 500px;
+  height: 40px;
+  border: none;
+  outline: none;
+  border-left: 3px solid lightblue;
+  padding: 0 0 0 0.5rem;
+  color: #858585;
+}
+
+.displayDate {
+  color: rgb(127, 182, 201);
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+.list {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  margin: 0.2rem auto;
+  padding: 0 0 0 0.5rem;
+  color: #858585;
+  background: #fff;
+  border-radius: 2px;
+  line-height: 40px;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+  transform: translateX(-200px);
+  opacity: 0;
+}
+
+.transition {
+  transform: translateX(0px);
+  opacity: 1;
+  transition: .5s;
+}
+
+.fas,
+.fa-times-circle,
+.icon-close {
+  color: rgb(255, 145, 145);
+  position: absolute;
+  top: 13px;
+  right: 5px;
+  cursor: pointer;
+}
+
+#todolist::placeholder {
+  color: #929292;
+  font-style: italic;
+}
+
+label {
+  display: block;
+  position: relative;
+}
+
+.icon-add {
+  color: rgb(145, 223, 186);
+  position: absolute;
+  top: 13px;
+  right: 5px;
+  cursor: pointer;
+}
